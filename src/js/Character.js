@@ -1,5 +1,6 @@
 export default class Character {
-	constructor(name, type, health, level, attack, defence) {
+	constructor(name, type, health, level) {
+		const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie']
 		if (name.length < 2 || name.length > 10) {
 			throw new Error('Name must be between 2 and 10 characters');
 		} else if (typeof name !== 'string') {
@@ -8,7 +9,7 @@ export default class Character {
 			this.name = name;
 		}
 
-		if (type === Bowman || type === Swordsman || type === Magician || type === Daemon || type === Undead || type === Zombie) {
+		if (!types.includes(type)) {
 			throw new Error('Unknown character');
 		} else if (typeof name !== 'string') {
 			throw new Error('The character’s type must be of the "string" type');
@@ -16,10 +17,10 @@ export default class Character {
 			this.type = type;
 		}
 
-		this.health = health;
-		this.level = level;
-		this.attack = attack;
-		this.defence = defence;
+		this.health = 100;
+		this.level = 1;
+		this.attack = undefined;
+		this.defence = undefined;
 	}
 
 	levelup() {
