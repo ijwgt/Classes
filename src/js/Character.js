@@ -3,19 +3,15 @@ export default class Character {
 		const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie']
 
 		if (name.length < 2 || name.length > 10) {
-			throw new Error('Name must be between 2 and 10 characters');
+			throw new Error('Имя персонажа должно содержать от 2 до 10 символов');
 		}
 
 		if (typeof name !== 'string') {
-			throw new Error('The character’s name must be of the "string" type')
+			throw new Error('Имя персонажа должно иметь тип "строка"')
 		}
 
 		if (!types.includes(type)) {
-			throw new Error('Unknown character');
-		}
-
-		if (typeof name !== 'string') {
-			throw new Error('The character’s type must be of the "string" type');
+			throw new Error('Неизвестный персонаж');
 		}
 
 		this.name = name;
@@ -34,7 +30,7 @@ export default class Character {
 			this.defence *= 1.2;
 			this.health = 100;
 		} else {
-			throw new Error('You cannot raise the level of the deceased');
+			throw new Error('Невозможно повысить показатели, персонаж мертв');
 		}
 	}
 
